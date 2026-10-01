@@ -7,174 +7,196 @@
 [![Google Gemini](https://img.shields.io/badge/Google_Gemini-2.4-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8.3-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 
-**Sangam** (संगम — *Confluence*) is a full-stack platform designed to bridge collegiate talent with impactful community service drives, NGOs, grassroots initiatives, and social internships across India. 
+# Sangam (संगम) — Collegiate Volunteer & Internship Network 🇮🇳
 
-Equipped with **AI-powered opportunity matching**, **campus-based cohort grouping**, **geofenced check-ins**, and **verifiable digital certificates**, Sangam empowers student chapters to organize, track verified volunteer hours, and drive measurable social change.
+![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
+![Express](https://img.shields.io/badge/Express-4-000000?style=flat-square&logo=express&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-sql.js-003B57?style=flat-square&logo=sqlite&logoColor=white)
+![Gemini](https://img.shields.io/badge/Google_Gemini-API-4285F4?style=flat-square&logo=google&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
----
+**Sangam** (*Confluence*) connects college students with NGOs, community drives, and social internships across India. Students find opportunities near campus, volunteer in campus squads, check in at the venue, and earn certificates anyone can verify online.
 
-## 🌟 Key Highlights & Features
-
-### 🎯 1. Opportunity Discovery & Geo-Proximity Matching
-- **Smart Filtering:** Browse social initiatives and internships by domain (*Education, Healthcare, Environment & Sustainability, Animal Welfare, Rural Development, Women Empowerment, Disaster Relief*).
-- **Proximity & Distance Engine:** Built-in campus presets (e.g., DU Delhi, VIT Vellore, COEP Pune, Jadavpur Kolkata, IISc/RV Bengaluru, Mumbai, Hyderabad) and live GPS coordinates to discover drives happening closest to campus.
-- **Interactive Maps:** Visual event locations with `@vis.gl/react-google-maps` integration.
-
-### 🤖 2. Google Gemini AI Assistance
-- **AI Opportunity Recommendations:** Matches volunteer profiles and skillsets with optimal drives.
-- **Statement of Purpose (SOP) Assistant:** Generates tailored motivations and application cover notes for internships.
-- **Smart Impact Summaries:** Automatically synthesizes volunteer contributions into resume-ready bullet points.
-
-### 👥 3. Campus Chapters & Automated Team Grouping
-- **College Hubs:** Students are automatically grouped into their respective college networks upon sign-up.
-- **Collaborative Squads:** Form teams for large-scale drives (e.g., beach cleanups, teaching drives, blood donation camps).
-- **College Leaderboards:** Real-time gamified ranking by total verified hours and Karma points across institutions.
-
-### 📱 4. Geofenced Check-In & Attendance Verification
-- **Anti-Fraud QR & GPS Check-in:** Voluntarily check into offline venues only when physically within the drive's designated geo-radius.
-- **Real-Time Drive Attendance:** Organizers monitor live check-ins and verify hours on-site.
-
-### 📜 5. Verifiable Digital Certificates
-- **Tamper-Proof Certificates:** Issued upon successful drive completion with cryptographic verification hashes.
-- **Instant QR Verification:** Public verification portal allows employers, recruiters, and colleges to validate certificates in one click.
-
-### 🏢 6. NGO & Organization Management Portal
-- **Drive Lifecycle Management:** Post openings, set volunteer caps, define required skills, and set venue coordinates.
-- **Applicant Screening:** Review student portfolios, accept/reject applicants, and assign team roles.
+<!-- TODO: add a demo link and 2–3 screenshots/GIF here. This is the single biggest upgrade to this README. -->
+<!-- **Live demo:** https://... -->
+<!-- ![Browse page](docs/browse.png) -->
 
 ---
 
-## 🏗️ Tech Stack Architecture
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Scripts](#scripts)
+- [Security & Data](#security--data)
+- [Known Limitations](#known-limitations)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## Features
+
+### 🎯 Opportunity discovery
+- Filter by domain: Education, Healthcare, Environment, Animal Welfare, Rural Development, Women Empowerment, Disaster Relief.
+- Sort by distance using campus presets (DU Delhi, VIT Vellore, COEP Pune, Jadavpur Kolkata, IISc/RV Bengaluru, Mumbai, Hyderabad) or live GPS (Haversine distance).
+- Event locations on an interactive map (`@vis.gl/react-google-maps`).
+
+### 🤖 Gemini-powered assistance
+- **Recommendations:** match a volunteer's profile and skills to suitable drives.
+- **SOP assistant:** draft a tailored motivation note for internship applications.
+- **Impact summaries:** turn logged contributions into resume-ready bullet points.
+
+### 👥 Campus chapters & squads
+- Students are grouped into their college hub at sign-up.
+- Form squads for larger drives (beach cleanups, teaching drives, blood donation camps).
+- College leaderboard ranked by verified hours and Karma points.
+
+### 📱 Geofenced check-in
+- Check in via QR + GPS, allowed only within the drive's geo-radius.
+- Organizers see live attendance and verify hours on-site.
+
+### 📜 Verifiable certificates
+- Issued on drive completion with a verification hash.
+- Public verification page (QR-linked) for employers, recruiters, and colleges.
+
+### 🏢 NGO portal
+- Post drives with volunteer caps, required skills, and venue coordinates.
+- Review applicants, accept/reject, and assign roles.
+
+---
+
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
-| **Frontend UI** | React 19, React Router v7, Tailwind CSS v4, Motion (Framer Motion), Lucide Icons |
-| **Interactive UI** | Canvas Confetti, QRCode.react, `@vis.gl/react-google-maps` |
-| **Backend API** | Node.js, Express.js (RESTful APIs) |
-| **AI Engine** | Google Gemini API (`@google/genai` SDK) |
-| **Database** | SQLite via `sql.js` (In-memory + auto-persisted file, pre-seeded dataset) |
-| **Auth & Security** | JWT (`jsonwebtoken`), `bcryptjs` password hashing, CORS |
-| **Build & Dev Tooling**| Vite 8, TypeScript / `tsx`, PostCSS |
+| Frontend | React 19, React Router v7, Tailwind CSS v4, Motion, Lucide Icons |
+| UI extras | Canvas Confetti, QRCode.react, `@vis.gl/react-google-maps` |
+| Backend | Node.js, Express (REST) |
+| AI | Google Gemini via `@google/genai` |
+| Database | SQLite via `sql.js` (in-memory, persisted to `sangam.sqlite`, auto-seeded) |
+| Auth | JWT (`jsonwebtoken`), `bcryptjs`, CORS |
+| Tooling | Vite, TypeScript / `tsx`, PostCSS |
 
 ---
 
-## 📁 Directory Structure
+## Getting Started
 
-```text
-├── public/                 # Static assets & icons
-├── server/
-│   ├── routes/             # Express API route modules
-│   │   ├── ai.js           # Gemini AI assistance endpoints
-│   │   ├── auth.js         # User registration & JWT login
-│   │   ├── applications.js # Volunteer application processing
-│   │   ├── certificates.js # Digital certificate generation & verification
-│   │   ├── colleges.js     # Campus directories & rankings
-│   │   ├── opportunities.js# Volunteer & internship postings
-│   │   ├── organizations.js# NGO profiles & management
-│   │   ├── stories.js      # Community impact feed
-│   │   ├── teams.js        # Student group & chapter management
-│   │   └── users.js        # User profiles & karma scores
-│   ├── db.js               # sql.js wrapper & query executor
-│   ├── schema.sql          # Relational database schema
-│   └── seedExtended.js     # Mock dataset generator (10 Indian cities & NGOs)
-├── src/
-│   ├── components/         # Reusable UI components (Modals, Nav, Cards, QR)
-│   ├── contexts/           # React Contexts (AuthContext, LocationContext)
-│   ├── pages/              # Primary view pages
-│   │   ├── BrowsePage.jsx
-│   │   ├── CertificatePage.jsx
-│   │   ├── DashboardPage.jsx
-│   │   ├── LeaderboardPage.jsx
-│   │   ├── LoginPage.jsx
-│   │   ├── OpportunitiesPage.jsx
-│   │   ├── OpportunityPage.jsx
-│   │   ├── OrgDashboardPage.jsx
-│   │   ├── ProfilePage.jsx
-│   │   └── StoriesPage.jsx
-│   ├── utils/              # Haversine distance, helpers & validators
-│   ├── App.jsx             # App routing & providers
-│   └── main.tsx            # React root mount
-├── server.ts               # Unified development & production server
-├── vite.config.ts          # Vite configuration
-└── package.json            # Project dependencies & scripts
-```
+**Prerequisites:** Node.js 18+ and npm.
 
----
-
-## 🚀 Getting Started
-
-### 1. Prerequisites
-- [Node.js](https://nodejs.org/) (version 18+ or 20+ recommended)
-- `npm` or `yarn` or `bun`
-
-### 2. Clone Repository
 ```bash
 git clone https://github.com/samhitastuti/Sangam.git
 cd Sangam
-```
-
-### 3. Install Dependencies
-```bash
 npm install
-```
-
-### 4. Configure Environment Variables
-Create a `.env` file in the root directory:
-```bash
 cp .env.example .env
 ```
-Populate the values:
-```env
-# Google Gemini API Key (Get from https://aistudio.google.com/)
-GEMINI_API_KEY=your_gemini_api_key_here
 
-# Application URL
+Fill in `.env`:
+
+```env
+# Required for AI features — https://aistudio.google.com/
+GEMINI_API_KEY=your_gemini_api_key
+
 APP_URL=http://localhost:3000
 
-# Optional: Google Maps Platform API key (for map views)
+# Optional — enables map views
 VITE_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
 ```
 
-### 5. Run the Application
-Start the unified full-stack development server:
+> `GEMINI_API_KEY` is used server-side only. Never prefix it with `VITE_`, or it will be exposed in the browser bundle.
+
+Run:
+
 ```bash
 npm run dev
 ```
-> The application will start at **`http://localhost:3000`** with live hot module replacement (HMR) and an auto-seeded SQLite database.
+
+Open **http://localhost:3000**. On first run the database is created and seeded with sample colleges, NGOs, opportunities, and stories.
+
+<!-- TODO: list seeded demo accounts (e.g. student / organizer logins) so reviewers can try both roles immediately. -->
 
 ---
 
-## 🧪 Available Scripts
+## Project Structure
 
-- `npm run dev` — Starts the combined backend and Vite dev server (`server.ts`).
-- `npm run build` — Compiles and bundles production frontend assets to `/dist`.
-- `npm run preview` — Locally previews the production build.
-- `npm run lint` — Runs TypeScript type-checking (`tsc --noEmit`).
+```text
+├── public/                 # Static assets
+├── server/
+│   ├── routes/
+│   │   ├── ai.js           # Gemini endpoints
+│   │   ├── auth.js         # Register / login (JWT)
+│   │   ├── applications.js # Volunteer applications
+│   │   ├── certificates.js # Issue & verify certificates
+│   │   ├── colleges.js     # Campus directory & rankings
+│   │   ├── opportunities.js# Drives & internships
+│   │   ├── organizations.js# NGO profiles
+│   │   ├── stories.js      # Impact feed
+│   │   ├── teams.js        # Squads & chapters
+│   │   └── users.js        # Profiles & Karma
+│   ├── db.js               # sql.js wrapper
+│   ├── schema.sql          # Database schema
+│   └── seedExtended.js     # Seed data (10 Indian cities, NGOs)
+├── src/
+│   ├── components/         # Modals, nav, cards, QR
+│   ├── contexts/           # AuthContext, LocationContext
+│   ├── pages/              # Browse, Opportunities, Dashboard, OrgDashboard,
+│   │                       # Certificate, Leaderboard, Profile, Stories, Login
+│   ├── utils/              # Haversine distance, helpers, validators
+│   ├── App.jsx             # Routing & providers
+│   └── main.tsx            # Entry point
+├── server.ts               # Combined dev/prod server
+├── vite.config.ts
+└── package.json
+```
 
 ---
 
-## 🔒 Security & Data Persistence
-- **Database:** Uses `sql.js` (WebAssembly SQLite) with automated disk synchronisation to `sangam.sqlite`. When initialized for the first time, it automatically sets up schemas and seeds initial opportunities, colleges, organizations, and verified volunteer stories.
-- **Passwords:** Hashed with salted `bcryptjs`.
-- **API Security:** Endpoints are protected via JSON Web Tokens (`Bearer` Authorization).
+## Scripts
+
+| Command | What it does |
+|---|---|
+| `npm run dev` | Starts the backend and Vite dev server together |
+| `npm run build` | Builds the frontend to `/dist` |
+| `npm run preview` | Previews the production build |
+| `npm run lint` | Type-checks with `tsc --noEmit` |
 
 ---
 
-## 🤝 Contributing
+## Security & Data
 
-Contributions, issues, and feature requests are welcome!
-1. Fork the Project.
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`).
-4. Push to the Branch (`git push origin feature/AmazingFeature`).
-5. Open a Pull Request.
+- Passwords are hashed with salted `bcryptjs`.
+- API routes are protected with JWT `Bearer` tokens.
+- Data lives in `sql.js` (WebAssembly SQLite) and is synced to `sangam.sqlite` on disk.
 
 ---
 
-## 📄 License
-This project is licensed under the **MIT License**.
+## Known Limitations
+
+Sangam is a prototype. Before real-world use:
+
+- **Storage:** `sql.js` holds the database in memory and writes snapshots to a file. It isn't suited to concurrent writes or multi-instance deployment; move to PostgreSQL or native SQLite for production.
+- **Geofencing:** GPS coordinates come from the client and can be spoofed. Treat check-ins as a deterrent, not proof; organizer verification is the real safeguard.
+- **Certificates:** the verification hash confirms a certificate matches a record in Sangam's database. It isn't an independent or blockchain-style proof.
 
 ---
+
+## Contributing
+
+Issues and PRs are welcome.
+
+1. Fork the repo and create a branch: `git checkout -b feature/your-feature`
+2. Commit your changes and push the branch
+3. Open a Pull Request
+
+---
+
+## License
+
+MIT
 
 <div align="center">
   <sub>Built with ❤️ for student volunteers across India.</sub>
