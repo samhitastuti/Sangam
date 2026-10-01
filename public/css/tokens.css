@@ -1,0 +1,17 @@
+/* public/css/tokens.css */
+:root {
+  --color-background: #FFF4EB; /* Seashell — base page background */
+  --color-surface:    #F6E0B6; /* Wheat — raised panels, "near your hometown" section, active chips */
+  --color-muted:      #A6BCC9; /* Powder Blue — secondary surfaces, disabled states, subtle borders */
+  --color-primary:    #3E4B8E; /* French Blue — primary actions, active nav, links, "applied" status */
+  --color-ink:        #3D1534; /* Midnight Violet — headings, body text, borders, "closed/withdrawn" status */
+  --color-gold:       #E7CB9C; /* Electrum — the ONE achievement accent reserved for completion/achievement moments */
+
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body:    "Inter", sans-serif;
+  --font-mono:    "JetBrains Mono", monospace;
+
+  --border-thick: 2px solid var(--color-ink);
+  --border-thin: 1px solid var(--color-ink);
+  --border-subtle: 1px solid var(--color-muted);
+}

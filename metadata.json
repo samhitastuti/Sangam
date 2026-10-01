@@ -1,0 +1,10 @@
+{
+  "name": "Remix Remix Remix Remix Remix Remix Remix Sangam — Student Volunteer \u0026 Internship Network",
+  "description": "Connect student volunteers to community and internship opportunities with automatic college-based team grouping.",
+  "requestFramePermissions": [
+    "GEOLOCATION"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
